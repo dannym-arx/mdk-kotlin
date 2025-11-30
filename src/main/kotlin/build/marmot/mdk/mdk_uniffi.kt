@@ -355,7 +355,7 @@ private fun findLibraryName(componentName: String): String {
     if (libOverride != null) {
         return libOverride
     }
-    return "libmdk_uniffi"
+    return "mdk_uniffi"
 }
 
 // Define FFI callback types
