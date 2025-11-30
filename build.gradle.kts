@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "org.parres.mdk"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 33
@@ -29,13 +29,6 @@ android {
         jvmTarget = "1.8"
     }
 
-    packaging {
-        jniLibs {
-            pickFirst("**/libjnidispatch.so")
-            pickFirst("**/libmdk_uniffi.so")
-        }
-    }
-
     publishing {
         singleVariant("release") {
             withSourcesJar()
@@ -45,11 +38,9 @@ android {
 }
 
 dependencies {
-    // Use api() for JNA so it's exposed to consumers of this library
-    // This ensures consumers get the JNA dependency transitively
     api("net.java.dev.jna:jna:5.14.0@aar")
     implementation("net.java.dev.jna:jna:5.14.0@aar")
-    
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
